@@ -19,9 +19,8 @@ description = "Vincent Hanquez's adventures with types, programming languages, c
 default_language = "en"
 
 taxonomies = [
-	{name = "tags", rss = true}, # each tag will have its own RSS feed
-	{name = "categories", paginate_by = 5},  # 5 items per page for a term
-	{name = "authors"}, # Basic definition: no RSS or pagination
+    {name = "categories", rss = true},
+    {name = "tags", rss = true}, # each tag will have its own RSS feed
 ]
 
 [extra]
@@ -30,9 +29,9 @@ hyde_sticky = true
 hyde_reverse = false
 hyde_theme = ""
 hyde_links = [
-  {url = "/about/", name = "About"},
-  {url = "/categories/crypto/", name = "Crypto"},
-  {url = "/categories/security/", name = "Security"},
-  {url = "/categories/programming/", name = "Programming"},
+  {url = "$BASE_URL/about/", name = "About"},
+  {url = "$BASE_URL/categories/crypto/", name = "Crypto"},
+  {url = "$BASE_URL/categories/security/", name = "Security"},
+  {url = "$BASE_URL/categories/programming/", name = "Programming"},
   {url = "https://typed.io", name = "Typed IO"},
 ]

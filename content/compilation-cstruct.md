@@ -2,8 +2,9 @@
 title = "Efficient CStruct"
 date = 2017-03-20
 draft = false
+[taxonomies]
 tags = ["haskell", "typelit", "compilation", "cstruct"]
-category = ["programming"]
+categories = ["programming"]
 +++
 
 Dealing with complex C-structure-like data in haskell often

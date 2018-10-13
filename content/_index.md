@@ -1,3 +1,4 @@
 +++
-insert_anchor_links = "none"
+paginate_by = 5
+sort_by = "date"
 +++

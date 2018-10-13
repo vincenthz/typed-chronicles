@@ -1,8 +1,9 @@
 +++
 title = "Downloading safely"
 date = 2015-05-30
+[taxonomies]
 tags = ["security", "download", "digest", "tls"]
-category = ["security"]
+categories = ["security"]
 +++
 
 All too often, things are downloaded without safety from hosts and mirrors.
