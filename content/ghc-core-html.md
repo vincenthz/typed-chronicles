@@ -9,7 +9,8 @@ categories = ["programming"]
 
 After reading one too many time ghc core's output,
 i've been itching to have a more interactive output.
-<!--more-->
+
+<!-- more -->
 
 ghc-core-html is the result of scratching my itch, and i
 think it could be useful in general to anyone. It creates

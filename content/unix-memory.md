@@ -12,7 +12,7 @@ memory. The main syscall is mmap, but there's also some others syscalls in the
 same family to handle mapped memories like mlock, munlock, mprotect, madvise,
 msync.
 
-<!--more-->
+<!-- more -->
 
 Some limited mmap access is available through the
 [mmap](http://hackage.haskell.org/package/mmap) or

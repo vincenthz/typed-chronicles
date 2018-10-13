@@ -11,7 +11,7 @@ Following discussions with fellow haskellers, regarding the need to be careful
 with adding packages that could depends on GPL or proprietary licenses, it
 turns out it's not easy to get your dependencies's licenses listed.
 
-<!--more-->
+<!-- more -->
 
 It would be convenient to be able to ask the hackage database those things,
 and this is exactly what cabal-db usually works with.

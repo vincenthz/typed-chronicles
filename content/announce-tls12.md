@@ -10,7 +10,7 @@ categories = ["programming"]
 One year ago, I've started some big changes on the [tls](http://hackage.haskell.org/package/tls) package.
 I've finally manage to wrap it up in something that people can use straight out of hackage.
 
-<!--more-->
+<!-- more -->
 
 State improvements
 ------------------

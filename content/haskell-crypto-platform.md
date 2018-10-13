@@ -13,7 +13,7 @@ I started [TLS](http://hackage.haskell.org/package/tls), there were many
 various cryptography related projects and libraries. Many were not easy to use,
 none were consistent, many had performance problems.
 
-<!--more-->
+<!-- more -->
 
 Just like the haskell platform, I dreamt of having a go-to set of packages
 for cryptography. This is why i've started this project on a side of actual packages.

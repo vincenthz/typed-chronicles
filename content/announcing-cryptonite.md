@@ -10,7 +10,7 @@ categories = ["programming", "crypto"]
 For the last 5 years, I've worked intermittently on cryptographic related packages for Haskell.
 Lately, I've consolidated it all in one single package. Announcing [cryptonite](http://hackage.haskell.org/package/cryptonite)
 
-<!--more-->
+<!-- more -->
 
 This new package merges the following packages:
 

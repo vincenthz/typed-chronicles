@@ -13,7 +13,7 @@ version that doesn't have a release, or testing your own compiler modification,
 it's useful to add your own compiler in a build tool that by default works
 in a multi compiler settings.
 
-<!--more-->
+<!-- more -->
 
 First make sure you have the right building environment (a C compiler, the make
 tool, etc.).  Also alex and happy are required, which you can get with:

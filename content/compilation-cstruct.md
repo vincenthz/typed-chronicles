@@ -17,7 +17,7 @@ binary parsers (binary, cereal) are not efficient or modular.
 
 Let's see if we can do better using the advanced haskell type system.
 
-<!--more-->
+<!-- more -->
 
 First let define a common like C structure that we will re-use to compare
 different methods:

@@ -11,7 +11,7 @@ A new hope. Foundation is a new library that tries to define a new modern Haskel
 It is also trying to be more than a library: A common place for
 the community to improve things and define new things
 
-<!--more-->
+<!-- more -->
 
 It started as a thought experiment:
 

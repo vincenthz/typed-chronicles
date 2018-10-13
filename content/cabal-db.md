@@ -11,7 +11,7 @@ Following previous experiment with Cabal library and querying the
 state of the hackage world [here](http://tab.snarc.org/posts/haskell/2013-03-03-playing-with-cabal-lib.html),
 I've extended and wrapped the tool into a cabal package.
 
-<!--more-->
+<!-- more -->
 
 A simple tool for cabal database query
 ======================================

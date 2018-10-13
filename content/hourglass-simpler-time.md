@@ -13,7 +13,7 @@ to be. After one time too many searching the API to do some basic thing, I've
 decided to look at the design space and just try implementing what I want to
 use.
 
-<!--more-->
+<!-- more -->
 
 Before going into this re-design, this is my list of issues with the current API:
 

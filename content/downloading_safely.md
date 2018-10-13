@@ -9,7 +9,7 @@ categories = ["security"]
 All too often, things are downloaded without safety from hosts and mirrors.
 Here's a practical guide to know where you stand and improve the situation.
 
-<!--more-->
+<!-- more -->
 
 I've seen countless example of script, Docker file, etc, that
 will do something akin to:

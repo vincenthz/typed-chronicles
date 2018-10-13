@@ -14,7 +14,7 @@ could create some interesting use cases, and could replace use of C in some
 projects while providing a more high level and safer approach where Haskell
 cannot be used.
 
-<!--more-->
+<!-- more -->
 
 One of my reason for doing this, is that writing code targetting low-level
 features is simpler in Rust than Haskell. For example, writing inline assembly
