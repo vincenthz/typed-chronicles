@@ -1,0 +1,112 @@
+---
+author: Vincent Hanquez
+title: TLS 1.0 is available in a hackage server near you
+tags: tls,haskell,crypto,release,announcement
+date: October 24, 2012
+---
+
+I'm quite pleased to announce that TLS 1.0 is now available.
+It took 9 months of brewing in its own branch, to get
+the last missing protocol bits implemented and much more.
+
+<!--more-->
+
+Here is the list of features in a short changelog
+
+Short Changelog
+---------------
+
+* Client certificates, courtesy of Martin Grabmuller.
+* NPN extension support, courtesy of Lennart Kolmodin.
+* ServerName extension.
+* New Certificate Store mechanism (certificate-1.3).
+* Major refactoring of code.
+
+Client Certificates
+-------------------
+
+Most if not all of the implementation is thanks to Martin here; He diligently
+implemented the missing bits, so that now the client can provides certificates,
+and that the server can ask for it. It also complete the last important
+handshake message that was still missing in TLS 0.9. Client certificates
+provides a way to authenticate using X509 certificate, so that a TLS stream can
+be mutually authenticated.
+
+The usual way is just to authenticate the server side, to be sure who you are
+talking to, and have client authentication done at a different level (for example
+imaps sending a user and password). Client certificate allows the client to
+bring the "something i have" security dimension (a certificate), along or
+instead of the "something i know" (e.g. a password).
+
+Client certificate use strong public key cryptography to allows authentications,
+commonly using RSA or DSA signing.
+
+Next Protocol Negotiation Extension
+-----------------------------------
+
+Next protocol negotiation (NPN) is a google extension to TLS, that allow a
+client to tell the server to which service this stream is suppose to connect.
+
+It has been designed as the basis of SPDY (a fast web protocol to fix some
+issue with HTTP), to connect to a normal HTTPS server, but negotiate the new
+SPDY protocol dynamically at the TLS handshake level.
+
+The extension itself is completely generic; you could design a single point of
+entry for all your services on a server, hidden in a generic TLS stream,
+on a generic port (for example HTTPS). This is quite likely to send some
+corporate network admins chills through their spines, as no-one
+except the client and the server at the destination can dictates what is
+allowed or denied. Filtering on destination ports (imap = 143, etc), with this
+kind of capability, will be thereafter utterly pointless.
+
+[On wikipedia](http://en.wikipedia.org/wiki/Next_Protocol_Negotiation)
+
+Certificate store
+-----------------
+
+The certificate store is a new feature in the certificate 1.3 package. The end
+goal is to make certification better and faster; For now the implementation is
+quite simple, it preload all trusted certificates from the system and
+indexed them with how we look for them.
+
+The previous approch was, at verification time, we'll list all the trusted certificates,
+parse them one by one, until we find (or not) the one we're suppose to match. This
+is a very costy process and also very wasteful as this is akin to searching in a list
+(with the list element coming from the disk), which is o(n). The certificate store
+even with the simplest implementation is able to do it in o(1) with, a constant
+and one-time o(n) preload.
+
+The benefits is also in the future, as the design allows combining
+implementations together (it's a Monoid !), so it will be easy to provides
+intelligent caches or better finding algorithm mechanism.
+
+One such thing is using the algorithm openssl uses, which use sha1 shorten
+hashes symlinks. The hash mechanism is already implemented in certificate 1.3
+for a better (future) certificate store implementation.
+
+Server Name Extension
+---------------------
+
+One minor extension has been implemented that provides the ability to specify
+a server name in the handshake. This is useful for the HTTP service, so that
+each virtual host can provides their own certificates with the name matching.
+
+It's not very used in general unfortunately, so it's likely not going to make a
+difference to anyone. For more information [Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)
+
+Code change
+-----------
+
+The major restructuration allows the stack to be more flexible, better documented,
+and better structured. There is now more files, however they are generally
+smaller, and organized in folders. For example everything handshake related, is to be
+found in the Network/TLS/Handshake/ folder. Unfortunately this restructuration is also
+bringing some interface changes. It should make things better in the long run,
+and I tried to bundle all the breaking changes in this version, so transition
+to next versions would be hopefully smoother.
+
+One last thing is some repositories of the tls stack have been merged together,
+so there's now only one repository for tls, tls-extra and tls-debug.
+
+That's all for now, and now it's time to look at the next version already.
+Enjoy, and do report bugs, improvements, and suggestions to the [usual place](https://github.com/vincenthz/hs-tls/issues/).

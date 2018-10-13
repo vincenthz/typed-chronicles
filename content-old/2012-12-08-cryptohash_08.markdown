@@ -1,0 +1,113 @@
+---
+author: Vincent Hanquez
+title: Cryptohash 0.8.x is out
+tags: cryptohash,haskell
+date: December 08, 2012
+---
+
+I've been trying to integrate some more type-safety in cryptohash for a while.
+The current and original scheme was using a bytestring for digest, meaning that
+they were no way to differentiate a digest with any other bytestring (short
+of wrapping it yourself).
+
+<!--more-->
+
+The major change in the pipeline was to make the digest, a proper type. As
+cryptohash is currently in used in many packages, putting a type in front
+of the raw bytestring would break API and will involve lots of patches.
+
+So as a middle ground, the compromise was leaving the API as it was, and create
+the centralized and unified API that has more type-safety. The two main difference
+are:
+
+* instead of returning a ByteString as digest, it returns a Digest type.
+* the API deal with every hashes defined within cryptohash, no need to import
+  any other module with the central module (Crypto.Hash)
+
+Previously:
+
+~~~~~~~~~~~~ {.haskell .numberLines}
+    MODULE.finalize :: MODULE.Ctx -> ByteString
+~~~~~~~~~~~~
+
+The equivalent with the unified API:
+
+~~~~~~~~~~~~ {.haskell .numberLines}
+    Crypto.Hash.hashFinalize :: HashAlgorithm a => Context a -> Digest a
+~~~~~~~~~~~~
+
+What about the binary representation ?
+--------------------------------------
+
+Before the digest returned as bytestring was the direct binary representation.
+With the unified interface, the binary representation is available with:
+
+~~~~~~~~~~~~ {.haskell .numberLines}
+    digestToByteString :: Digest a -> ByteString
+~~~~~~~~~~~~
+
+Show us the digest
+------------------
+
+With the new digest type, there's a Show instance that make sense for user.
+
+As the digest was just a bytestring before, the show instance would just print:
+
+    "\"\\218\\&9\\163\\238^kK\\r2U\\191\\239\\149`\\CAN\\144\\175\\216\\a\\t\""
+
+now instead using show on a digest gives you the more useful:
+
+    "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+
+Unified API
+-----------
+
+The unified API is very similar to the module API
+
+~~~~~~~~~~~~ {.haskell .numberLines}
+    hashInit     :: Context a
+    hashUpdates  :: Context a -> [ByteString] -> Context a
+    hashFinalize :: Context a -> Digest a
+
+    hash     :: HashAlgorithm a => ByteString -> Digest a
+    hashlazy :: HashAlgorithm a => L.ByteString -> Digest a
+~~~~~~~~~~~~
+
+Along with the unified API, we now have all hash algorithms defined as empty
+data declaration. This is used for annotating the Context and Digest types
+to determine which algorithm you're using.
+
+A simple example on how to print many different digests of the bytes sequence 1,2,3,4.
+
+~~~~~~~~~~~~ {.haskell .numberLines}
+    import qualified Data.ByteString as B
+    import Crypto.Hash
+
+    main = do
+        let b = B.pack [1,2,3,4]
+        putStrLn $ show (hash b :: Digest SHA1)
+        putStrLn $ show (hash b :: Digest SHA224)
+        putStrLn $ show (hash b :: Digest SHA512)
+        putStrLn $ show (hash b :: Digest SHA3_512)
+        putStrLn $ show (hash b :: Digest MD5)
+~~~~~~~~~~~~
+
+Performance
+-----------
+
+Haskell supports really clever optimisations in terms of RULES; there's now some rules to make
+sure that each API are as fast as each other, hence the following is almost
+equivalent in term of performance (where HASH is the algorithm of your choice, e.g. SHA1):
+
+~~~~~~~~~~~~ {.haskell .numberLines}
+    HASH.hash b
+    (HASH.finalize . MODULE.update MODULE.init) b
+    hash b :: Digest HASH
+    (hashFinalize . hashUpdate hashInit) b :: Digest HASH
+~~~~~~~~~~~~
+
+cryptohash also supports crypto-api, but the current API has a significant cost
+compared to using native cryptohash API. At the moment I recommend not to use
+the crypto-api interfaces, until we solve the problem.
+
+[criterion benchmarks](http://tab.snarc.org/others/benchmark-cryptohash-0.8.html)
