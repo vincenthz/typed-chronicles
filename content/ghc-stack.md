@@ -4,7 +4,7 @@ date = 2017-07-20
 draft = false
 [taxonomies]
 tags = ["haskell","ghc","stack"]
-category = ["programming"]
+categories = ["programming"]
 +++
 
 While Stack is really good at magically summoning all the compilers you need,
