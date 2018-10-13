@@ -1,9 +1,11 @@
----
-author: Vincent Hanquez
-title: "announcement: tls-1.2 is out"
-tags: blog,image,tutorial
-date: February 14, 2014
----
++++
+title = "announcement: tls-1.2 is out"
+date = 2014-02-14
+draft = false
+[taxonomies]
+tags = ["haskell", "tls"]
+categories = ["programming"]
++++
 
 One year ago, I've started some big changes on the [tls](http://hackage.haskell.org/package/tls) package.
 I've finally manage to wrap it up in something that people can use straight out of hackage.

@@ -1,9 +1,11 @@
----
-author: Vincent Hanquez
-title: Listing licenses with cabal-db
-tags: cabal,license,cabal-db
-date: March 29, 2014
----
++++
+title = "Listing licenses with cabal-db"
+date = 2014-03-29
+draft = false
+[taxonomies]
+tags = ["cabal","license","cabal-db"]
+categories = ["programming"]
++++
 
 Following discussions with fellow haskellers, regarding the need to be careful
 with adding packages that could depends on GPL or proprietary licenses, it

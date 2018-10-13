@@ -5,7 +5,7 @@ tags: cabal,graph,API,library,dependencies,dot
 date: March 03, 2013
 ---
 
-Cabal is a fantastic tool for package care and aftercare. Most of cabal
+Cabal is a tool for package care and aftercare. Most of cabal
 functionalities are available in the library itself, and I've been looking at the
 library to write some little tool to solve queries i'ld like to run on the
 state of the haskell world.

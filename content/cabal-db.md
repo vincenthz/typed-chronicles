@@ -1,9 +1,11 @@
----
-author: Vincent Hanquez
-title: "cabal-db : simple tool for cabal database queries"
-tags: cabal,cabal-db,graph,API,library,dependencies,dot
-date: March 13, 2013
----
++++
+title = "cabal-db : simple tool for cabal database queries"
+date = 2013-03-13
+draft = false
+[taxonomies]
+tags = ["cabal","cabal-db","graph","API","library","dependencies","dot"]
+categories = ["programming"]
++++
 
 Following previous experiment with Cabal library and querying the
 state of the hackage world [here](http://tab.snarc.org/posts/haskell/2013-03-03-playing-with-cabal-lib.html),

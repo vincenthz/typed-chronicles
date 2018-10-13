@@ -1,10 +1,11 @@
----
-author: Vincent Hanquez
-title: "Announcing: cryptonite"
-tags: crypto,haskell
-date: June 2, 2015
-image: posts/colossus-bg.jpg
----
++++
+title = "Announcing: cryptonite"
+date = 2015-06-02
+draft = false
+[taxonomies]
+tags = ["haskell", "crypto", "cryptography"]
+categories = ["programming", "crypto"]
++++
 
 For the last 5 years, I've worked intermittently on cryptographic related packages for Haskell.
 Lately, I've consolidated it all in one single package. Announcing [cryptonite](http://hackage.haskell.org/package/cryptonite)

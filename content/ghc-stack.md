@@ -1,9 +1,11 @@
----
-author: Vincent Hanquez
-title: "Compiling GHC with Stack for Stack"
-tags: haskell,ghc,stack
-date: July 20, 2017
----
++++
+title = "Compiling GHC with Stack for Stack"
+date = 2017-07-20
+draft = false
+[taxonomies]
+tags = ["haskell","ghc","stack"]
+category = ["programming"]
++++
 
 While Stack is really good at magically summoning all the compilers you need,
 adding your own compiled compiler is not quite documented. For testing specific

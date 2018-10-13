@@ -1,9 +1,11 @@
----
-author: Vincent Hanquez
-title: unix memory
-tags: haskell,unix,memory,mmap
-date: February 25, 2014
----
++++
+title = "unix memory"
+date = 2014-02-25
+draft = false
+[taxonomies]
+tags = ["haskell","unix","memory","mmap"]
+categories = ["programming"]
++++
 
 On unix system, we get access to syscalls that maps files or devices into
 memory. The main syscall is mmap, but there's also some others syscalls in the

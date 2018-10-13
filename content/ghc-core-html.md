@@ -1,9 +1,11 @@
----
-author: Vincent Hanquez
-title: ghc core with style
-tags: ghc,core,html,css,javascript
-date: April 22, 2013
----
++++
+title = "ghc core with style"
+date = 2013-04-22
+draft = false
+[taxonomies]
+tags = ["ghc","core","html","css","javascript"]
+categories = ["programming"]
++++
 
 After reading one too many time ghc core's output,
 i've been itching to have a more interactive output.

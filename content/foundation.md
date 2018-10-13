@@ -1,10 +1,11 @@
----
-author: Vincent Hanquez
-title: Foundation
-tags: foundation,haskell,text,vector,bytestring
-date: September 09, 2016
-image: posts/foundation-bg.jpg
----
++++
+title = "Foundation"
+date = 2016-09-09
+draft = false
+[taxonomies]
+tags = ["haskell", "foundation", "text", "vector", "bytestring"]
+categories = ["programming"]
++++
 
 A new hope. Foundation is a new library that tries to define a new modern Haskell framework.
 It is also trying to be more than a library: A common place for
@@ -99,7 +100,7 @@ This means we can offer a lightweight type based on `UArray Word8`:
 
 ```haskell
 newtype String = String (UArray Word8)
-```  
+```
 
 So by doing this, we inherit directly all the advantages of our vector types; namely
 we have a `String` type that is unpinned or pinned (depending on needs), and supports

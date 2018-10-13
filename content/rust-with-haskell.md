@@ -1,10 +1,11 @@
----
-author: Vincent Hanquez
-title: Combining Rust and Haskell
-tags: rust,haskell
-date: September 28, 2015
-image: posts/rusty-lambda-bg.jpg
----
++++
+title = "Combining Rust and Haskell"
+date = 2015-09-28
+draft = false
+[taxonomies]
+tags = ["haskell", "rust"]
+categories = ["programming"]
++++
 
 Rust is a pretty interesting language, in the area of C++ but more modern /
 better. The stated goal of rust are: "a systems programming language focused
@@ -83,7 +84,7 @@ import Foreign.C.Types
 foreign import ccall unsafe "rust_hello" rust_hello :: CInt -> IO CInt
 
 main = do
-    v <- rust_hello 2901
+    v <- rust_hello 1234
     putStrLn ("Rust returned: " ++ show v)
 ```
 
@@ -94,12 +95,12 @@ we can try directly linking with ghc:
 
     ghc -o hello-rust --make src/Main.hs -lhello -Ltarget/debug
 
-and running: 
+and running:
 
 ```sh
 $ ./hello-rust
-Hello Rust World: 2901
-Rust returned: 2902
+Hello Rust World: 1234
+Rust returned: 1235
 ```
 
 That achieve the goal above. From there we can polish things and add this to a cabal file:
@@ -119,7 +120,7 @@ extra-source-files:  src/lib.rs
 executable hello-rust
   main-is:             Main.hs
   other-extensions:    ForeignFunctionInterface
-  build-depends:       base >=4.8 && <4.9
+  build-depends:       base >=4.8
   hs-source-dirs:      src
   default-language:    Haskell2010
   extra-lib-dirs:      target/release, target/debug

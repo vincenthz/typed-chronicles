@@ -1,10 +1,11 @@
----
-author: Vincent Hanquez
-title: Simple time with Hourglass
-tags: hourglass,time,simple
-date: May 05, 2014
-image: posts/time-bg.jpg
----
++++
+title = "Simple time with Hourglass"
+date = 2014-05-05
+draft = false
+[taxonomies]
+tags = ["hourglass","time","simple"]
+categories = ["programming"]
++++
 
 Each time, I've used the [time](http://hackage.haskell.org/package/time) API in
 Haskell, I'm left with the distinct feeling that the API is not what I want it

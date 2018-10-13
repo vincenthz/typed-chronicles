@@ -1,10 +1,11 @@
----
-author: Vincent Hanquez
-title: haskell crypto platform
-tags: haskell,crypto,platform
-date: October 25, 2013
-image: posts/colossus-bg.jpg
----
++++
+title = "haskell crypto platform"
+date = 2013-10-25
+draft = false
+[taxonomies]
+tags = ["haskell","crypto","platform"]
+categories = ["crypto", "programming"]
++++
 
 One of my side projects that has been running for couple of years now,
 was to get Cryptography up to scratch in haskell. Back when
