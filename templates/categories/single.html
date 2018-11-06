@@ -2,17 +2,18 @@
 
 {% block content %}
     <div class="taxonomy">
-        <h2>{{ term.name }}</h2>
+        <h1>{{ term.name }}</h1>
         {% for page in term.pages %}
             <div class="taxonomy__item">
-                <span class="taxonomy__item__time">{{ page.date | date(format="%F") }}</span>
-                <span class="taxonomy__item__title">
-                    <a href="{{ page.permalink }}">{{ page.title }}</a>
-                </span>
-                <span class="taxonomy__item__summary">
-                    {{ page.summary }}
-                </span>
-            </div>
+                        <h1 class="post-title">
+                          <a href="{{ page.permalink }}">
+                            {{ page.title }}
+                          </a>
+                        </h1>
+                        <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
+                        <div class="post-summary">{{ page.summary | safe }}</div>
+			<div class="post-summary-next"><a href="{{ page.permalink }}">⇨</a></div>
+             </div>
         {% endfor %}
     </div>
 {% endblock content %}

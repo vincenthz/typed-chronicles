@@ -27,11 +27,12 @@ taxonomies = [
 # Put all your custom variables here
 hyde_sticky = true
 hyde_reverse = false
-hyde_theme = ""
+#hyde_theme = ""
+hyde_theme = "theme-base-08"
 hyde_links = [
   {url = "$BASE_URL/about/", name = "About"},
   {url = "$BASE_URL/categories/crypto/", name = "Crypto"},
   {url = "$BASE_URL/categories/security/", name = "Security"},
   {url = "$BASE_URL/categories/programming/", name = "Programming"},
-  {url = "https://typed.io", name = "Typed IO"},
+  {url = "http://typed.io", name = "Typed IO"},
 ]

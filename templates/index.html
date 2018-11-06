@@ -10,6 +10,8 @@
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
       <!-- CSS -->
+      <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" /> -->
+      <link rel="shortcut icon" href="/favicon.ico" />
       <link rel="stylesheet" href="{{ get_url(path="print.css", trailing_slash=false) }}" media="print">
       <link rel="stylesheet" href="{{ get_url(path="poole.css", trailing_slash=false) }}">
       <link rel="stylesheet" href="{{ get_url(path="hyde.css", trailing_slash=false) }}">
@@ -31,7 +33,7 @@
       {% endblock extra_head %}
     </head>
 
-    <body class="{{ config.extra.hyde_theme }} {% if config.extra.hyde_reverse %}layout-reverse{% endif %}">
+    <body class="{{ config.extra.hyde_theme }} {% if config.extra.hyde_reverse %}layout-reverse{% endif %} dark">
         {% block sidebar %}
             <div class="sidebar">
 	        <button class="toggle-theme" onclick="toggle_darkmode()">☾/☀</button>
@@ -68,8 +70,8 @@
                         </h1>
 
                         <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
-            <div class="post-summary">{{ page.summary | safe }}</div>
-                          <a href="{{ page.permalink }}">⇨</a>
+                        <div class="post-summary">{{ page.summary | safe }}</div>
+			<div class="post-summary-next"><a href="{{ page.permalink }}">⇨</a></div>
                       </div>
                     {% endfor %}
                 </div>
