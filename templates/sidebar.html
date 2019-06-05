@@ -1,0 +1,21 @@
+<div class="container {% if config.extra.hyde_sticky %}sidebar-sticky{% endif %}">
+    <div class="sidebar-about">
+        {% block sidebar_about %}
+        <a href="{{ config.base_url }}">
+            <h1>{{ config.title }}</h1>
+        </a>
+        {% if config.description %}
+        <p class="lead">{{config.description}}</p>
+        {% endif %}
+        {% endblock sidebar_about %}
+    </div>
+
+    <ul class="sidebar-nav">
+        {% block sidebar_nav %}
+        {% for link in config.extra.hyde_links %}
+        <li class="sidebar-nav-item"><a
+                href="{{link.url | replace(from="$BASE_URL", to=config.base_url) }}">{{link.name}}</a></li>
+        {% endfor %}
+        {% endblock sidebar_nav %}
+    </ul>
+</div>

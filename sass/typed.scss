@@ -1,0 +1,295 @@
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+
+$firstcolor: #ac4142;
+$firstcolor: #0c6162;
+$highlightcolor: #cc6162;
+
+$darkback: #1d1d18;
+$darkfront: #ffffff;
+$lightfront: #515151;
+$lightback: #ffffff;
+
+html {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  //line-height: 1.5;
+}
+
+body {
+  color: $lightfront;
+  background-color: $lightback;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  h1,
+  h2,
+  h3 {
+    color: $lightfront;
+  }
+  code {
+    background-color: transparent;
+    color: $highlightcolor;
+  }
+}
+
+body.dark {
+  background-color: $darkback;
+  color: $darkfront;
+  h1,
+  h2,
+  h3 {
+    color: $darkfront;
+  }
+}
+
+/* No `:visited` state is required by default (browsers will use `a`) */
+a {
+  //color: #268bd2;
+  text-decoration: none;
+}
+/* `:focus` is linked to `:hover` for basic accessibility */
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Code */
+code,
+pre {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  overflow-x: scroll;
+  background-color: #f9f9f9;
+}
+pre code {
+  padding: 0;
+  font-size: 100%;
+  color: inherit;
+  background-color: transparent;
+}
+.highlight {
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+.highlight pre {
+  margin-bottom: 0;
+}
+
+/* Quotes */
+blockquote {
+  padding: 0.5rem 1rem;
+  margin: 0.8rem 0;
+  color: #7a7a7a;
+  border-left: 0.25rem solid #e5e5e5;
+}
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 30em) {
+  blockquote {
+    padding-right: 5rem;
+    padding-left: 1.25rem;
+  }
+}
+
+.page {
+  padding-left: 0;
+  padding-right: 0;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "sidebar"
+    "content"
+    "footer";
+  grid-template-columns: auto;
+  grid-template-rows: auto auto 1fr auto;
+  grid-gap: 10px;
+  height: 100vh;
+}
+
+@media (min-width: 30rem) {
+  .sidebar {
+    display: flex;
+    height: 100vh;
+  }
+  .page {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "sidebar content"
+      "footer footer";
+    grid-template-columns: 12rem auto;
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 0px;
+    height: 100vh;
+  }
+  .sidebar-sticky {
+    display: inline-block;
+    align-self: flex-end;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  .content {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.header {
+  grid-area: header;
+  background-color: $firstcolor;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #fff;
+
+  .logo {
+    font-size: 20px;
+    vertical-align: super;
+    color: #fff;
+  }
+  button {
+    margin-top: 4px;
+    float: right;
+    color: #fff;
+  }
+}
+.sidebar {
+  grid-area: sidebar;
+  background-color: $firstcolor;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.content {
+  grid-area: content;
+  max-width: 70em;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.footer {
+  grid-area: footer;
+  color: #777;
+  text-align: center;
+  font-size: 10px;
+
+  .social {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    a {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.sidebar {
+  a {
+    color: #fff;
+  }
+}
+
+@media (max-width: 48em) {
+  body {
+    font-size: 14px;
+  }
+}
+
+.post {
+  /*
+  padding-top: 20px;
+  padding-left: 5px;
+  padding-right: 20px;
+  max-width: 70em;
+  */
+
+  .post-summary-next {
+    color: #aaa;
+    text-align: right;
+    font-variant: small-caps;
+    a,
+    a:active,
+    a:hover,
+    a:focus,
+    a:visited {
+      color: #aaa;
+    }
+  }
+}
+
+h1.post-title {
+  text-align: center;
+}
+span.post-date {
+  display: block;
+  text-align: right;
+}
+
+/*
+.content a,
+.related-posts li a:hover {
+  color: $firstcolor;
+}
+*/
+
+body.dark {
+  .content a,
+  .related-posts li a:hover {
+    color: $firstcolor;
+  }
+  .footer {
+    .social {
+      img {
+        filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(146deg) brightness(104%) contrast(97%);
+      }
+    }
+  }
+}
+
+.sidebar-nav {
+  padding-left: 0;
+  list-style: none;
+}
+.sidebar-nav-item {
+  display: block;
+}
+a.sidebar-nav-item:hover,
+a.sidebar-nav-item:focus {
+  text-decoration: underline;
+}
+.sidebar-nav-item.active {
+  font-weight: bold;
+}
+
+.sidebar-about h1 {
+  color: #fff;
+  margin-top: 0;
+  font-family: "Abril Fatface", serif;
+  //font-size: 3.0rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-block-end: 20px;
+  margin-block-start: 0px;
+  text-size-adjust: 100%;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.taxonomy {
+  h1 {
+    text-align: center;
+    font-size: 50px;
+  }
+}

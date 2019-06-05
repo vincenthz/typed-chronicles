@@ -1,5 +1,18 @@
 {% extends "index.html" %}
 
+{% block pagelayout %}
+class="page-reader"
+{% endblock pagelayout %}
+
+{% block header %}
+<div class="header">
+  {% include "header.html" %}
+</div>
+{% endblock header %}
+
+{% block sidebar %}
+{% endblock sidebar %}
+
 {% block content %}
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
@@ -7,4 +20,3 @@
   {{ page.content | safe }}
 </div>
 {% endblock content %}
-

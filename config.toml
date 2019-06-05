@@ -26,7 +26,6 @@ taxonomies = [
 [extra]
 # Put all your custom variables here
 hyde_sticky = true
-hyde_reverse = false
 #hyde_theme = ""
 hyde_theme = "theme-base-08"
 hyde_links = [
