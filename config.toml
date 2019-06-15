@@ -34,5 +34,5 @@ hyde_links = [
   {url = "$BASE_URL/categories/crypto/", name = "Crypto"},
   {url = "$BASE_URL/categories/security/", name = "Security"},
   {url = "$BASE_URL/categories/programming/", name = "Programming"},
-  {url = "http://typed.io", name = "Typed IO"},
+  {url = "https://typed.io", name = "Typed IO"},
 ]
