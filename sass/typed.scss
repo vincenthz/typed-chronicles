@@ -6,7 +6,10 @@
 
 $firstcolor: #ac4142;
 $firstcolor: #0c6162;
+$firstcolor: #fcc102;
 $highlightcolor: #cc6162;
+$highlightfront: #fff;
+$titlecolor: $firstcolor;
 
 $darkback: #1d1d18;
 $darkfront: #ffffff;
@@ -34,19 +37,20 @@ body {
   }
 }
 
-body.dark {
-  background-color: $darkback;
-  color: $darkfront;
-  h1,
-  h2,
-  h3 {
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: $darkback;
     color: $darkfront;
+    h1,
+    h2,
+    h3 {
+      color: $darkfront;
+    }
   }
 }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-  //color: #268bd2;
   text-decoration: none;
 }
 /* `:focus` is linked to `:hover` for basic accessibility */
@@ -102,6 +106,10 @@ blockquote p:last-child {
   }
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////
+
 .page {
   padding-left: 0;
   padding-right: 0;
@@ -121,6 +129,7 @@ blockquote p:last-child {
   .sidebar {
     display: flex;
     height: 100vh;
+    background: linear-gradient(to right, #efa300 0%, $firstcolor 100%);
   }
   .page {
     display: grid;
@@ -150,17 +159,14 @@ blockquote p:last-child {
   background-color: $firstcolor;
   padding-left: 10px;
   padding-right: 10px;
-  color: #fff;
 
   .logo {
     font-size: 20px;
     vertical-align: super;
-    color: #fff;
   }
   button {
     margin-top: 4px;
     float: right;
-    color: #fff;
   }
 }
 .sidebar {
@@ -191,12 +197,6 @@ blockquote p:last-child {
   }
 }
 
-.sidebar {
-  a {
-    color: #fff;
-  }
-}
-
 @media (max-width: 48em) {
   body {
     font-size: 14px;
@@ -204,13 +204,10 @@ blockquote p:last-child {
 }
 
 .post {
-  /*
-  padding-top: 20px;
-  padding-left: 5px;
-  padding-right: 20px;
-  max-width: 70em;
-  */
-
+  line-height: 1.5;
+  a {
+    color: $firstcolor;
+  }
   .post-summary-next {
     color: #aaa;
     text-align: right;
@@ -233,22 +230,27 @@ span.post-date {
   text-align: right;
 }
 
-/*
-.content a,
-.related-posts li a:hover {
-  color: $firstcolor;
-}
-*/
-
-body.dark {
-  .content a,
-  .related-posts li a:hover {
-    color: $firstcolor;
+body {
+  .content h1 a {
+    color: $titlecolor;
+    text-shadow: 1px 1px #961;
   }
-  .footer {
-    .social {
-      img {
-        filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(146deg) brightness(104%) contrast(97%);
+  .sidebar {
+    color: #000;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    .content h1 a {
+      color: $titlecolor;
+    }
+    .footer {
+      padding-bottom: 10px;
+      .social {
+        img {
+          filter: invert(27%) sepia(91%) saturate(2878%) hue-rotate(40deg) brightness(104%) contrast(97%);
+        }
       }
     }
   }
@@ -269,8 +271,8 @@ a.sidebar-nav-item:focus {
   font-weight: bold;
 }
 
-.sidebar-about h1 {
-  color: #fff;
+.sidebar-about h1 a {
+  color: #000;
   margin-top: 0;
   font-family: "Abril Fatface", serif;
   //font-size: 3.0rem;
@@ -284,7 +286,11 @@ a.sidebar-nav-item:focus {
   margin-block-end: 20px;
   margin-block-start: 0px;
   text-size-adjust: 100%;
-  color: rgba(255, 255, 255, 0.5);
+
+  color: #111;
+  font-weight: bold;
+  // light sidebar
+  // color: rgba(255, 255, 255, 0.5);
 }
 
 .taxonomy {
