@@ -12,6 +12,7 @@ $highlightfront: #fff;
 $titlecolor: $firstcolor;
 
 $darkback: #1d1d18;
+$darkback: #252525;
 $darkfront: #ffffff;
 $lightfront: #515151;
 $lightback: #ffffff;
@@ -203,6 +204,16 @@ blockquote p:last-child {
   }
 }
 
+.content a {
+  color: #f91;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .content a {
+    color: $firstcolor;
+  }
+}
+
 .post {
   line-height: 1.5;
   a {
@@ -263,9 +274,12 @@ body {
 .sidebar-nav-item {
   display: block;
 }
-a.sidebar-nav-item:hover,
-a.sidebar-nav-item:focus {
-  text-decoration: underline;
+li.sidebar-nav-item {
+  a {
+    text-decoration: underline;
+    color: #000;
+    font-weight: bold;
+  }
 }
 .sidebar-nav-item.active {
   font-weight: bold;

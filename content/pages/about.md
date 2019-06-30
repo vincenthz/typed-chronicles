@@ -14,7 +14,7 @@ Xen, XenServer, XenClient, Qemu, Bank trading application (Haskell), various cry
 projects.
 
 More recently, I've been contracting through
-[Typed IO](http://typed.io/) and I've been involved in many different projects involving
+[Typed IO](https://typed.io/) and I've been involved in many different projects involving
 cryptography, security and engineering:
 
 * Privacy enhanced e-mail with mediation
@@ -29,11 +29,11 @@ Projects
 
 Find my personal opensource projects on:
 
-* [personal github](http://github.com/vincenthz)
+* [personal github](https://github.com/vincenthz)
 * github organisations:
-  * [haskell-foundation](http://github.com/haskell-foundation)
-  * [haskell-crypto](http://github.com/haskell-crypto)
-* [typed-io](http://github.com/typed-io)
+  * [haskell-foundation](https://github.com/haskell-foundation)
+  * [haskell-crypto](https://github.com/haskell-crypto)
+* [typed-io](https://github.com/typed-io)
 
 Academia
 ========
