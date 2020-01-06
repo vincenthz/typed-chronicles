@@ -13,8 +13,8 @@
     <!-- CSS -->
     <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" /> -->
     <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="{{ get_url(path="print.css", trailing_slash=false) }}" media="print">
-    <link rel="stylesheet" href="{{ get_url(path="normalize.css", trailing_slash=false) }}">
+    <!-- <link rel="stylesheet" href="{{ get_url(path="print.css", trailing_slash=false) }}" media="print"> -->
+    <!-- <link rel="stylesheet" href="{{ get_url(path="normalize.css", trailing_slash=false) }}"> -->
     <link rel="stylesheet" href="{{ get_url(path="typed.css", trailing_slash=false) }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
@@ -52,46 +52,58 @@
 </head>
 
 <body>
-    <div {% block pagelayout %} class="page" {% endblock pagelayout %}>
+    <div id="page-outer">
 
-        {% block header %}
-        {% endblock header %}
+        <div id="page">
+            {% block sidebar %}
+            <header>
+                {% include "sidebar.html" %}
+                {% include "topics.html" %}
+            </header>
+            {% endblock sidebar %}
 
-        {% block sidebar %}
-        <div class="sidebar">
-            {% include "sidebar.html" %}
-        </div>
-        {% endblock sidebar %}
+            <main>
+                {% block content %}
+                <div id="posts">
+                    {% for page in section.pages %}
+                    <div class="post">
+                        <h1 class="post-title">
+                            <a href="{{ page.permalink }}">
+                                {{ page.title }}
+                            </a>
+                        </h1>
 
-        <div class="content">
-            {% block content %}
-            <div class="posts">
-                {% for page in section.pages %}
-                <div class="post">
-                    <h1 class="post-title">
-                        <a href="{{ page.permalink }}">
-                            {{ page.title }}
-                        </a>
-                    </h1>
-
-                    <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
-                    <div class="post-summary">{{ page.summary | safe }}</div>
-                    <div class="post-summary-next"><a href="{{ page.permalink }}">read next ⇨</a></div>
+                        <span class="post-date">Published on {{ page.date | date(format="%Y-%m-%d") }}</span>
+                        <div class="post-summary">{{ page.summary | safe }}</div>
+                        <div class="post-summary-next"><a href="{{ page.permalink }}">Continue reading…</a></div>
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
-            </div>
-            {% endblock content %}
+                {% endblock content %}
+            </main>
         </div>
 
-        <div class="footer">
-            <div class="social">
-                <a href="https://github.com/vincenthz" target="_blank"><img src="/icons/gh.svg"></a>
-                <a href="https://twitter.com/vincenthz" target="_blank"><img src="/icons/tw.svg"></a>
+        <footer>
+            <div class="inner">
+                <div class="about-short">
+                    <h2><a href="/about/">About me</a></h2>
+                    <p>I've been developping software for the last 20 years, in many different languages and many
+                        different projects.
+                        My main interests are currently cryptography, security and typed programming</p>
+                    <p>I'm the director of <a href="https://typed.io/">Typed IO</a>, a software contracting company</p>
+                </div>
+                <div class="social">
+                    <a class="icon" href="https://github.com/vincenthz" target="_blank"><img src="/icons/gh.svg"></a>
+                    <a class="icon" href="https://twitter.com/vincenthz" target="_blank"><img src="/icons/tw.svg"></a>
+                    <a class="icon" href="{{ get_url(path="rss.xml", trailing_slash=false) }}"><img
+                            src="/icons/rss.svg"></a>
+                </div>
+                <span>&copy; 2014-2020 Vincent Hanquez</span>
             </div>
-            <span>&copy; 2014-2019 Vincent Hanquez</span>
-        </div>
-
+        </footer>
     </div>
+
 </body>
+
 
 </html>

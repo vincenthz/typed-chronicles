@@ -1,0 +1,8 @@
+<ul id="topics">
+
+    {% block sidebar_nav %}
+    {% for link in config.extra.hyde_links %}
+    <li><a href="{{link.url | replace(from="$BASE_URL", to=config.base_url) }}">{{link.name}}</a></li>
+    {% endfor %}
+    {% endblock sidebar_nav %}
+</ul>

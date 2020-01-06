@@ -1,22 +1,13 @@
 {% extends "index.html" %}
 
-{% block pagelayout %}
-class="page-reader"
-{% endblock pagelayout %}
-
-{% block header %}
-<div class="header">
-  {% include "header.html" %}
-</div>
-{% endblock header %}
-
 {% block sidebar %}
+<header>
+  {% include "sidebar.html" %}
+</header>
 {% endblock sidebar %}
 
 {% block content %}
-<div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
-  {{ page.content | safe }}
-</div>
+<h1 class="page-title">{{ page.title }}</h1>
+<span class="post-date">Published on {{ page.date | date(format="%Y-%m-%d") }}</span>
+{{ page.content | safe }}
 {% endblock content %}

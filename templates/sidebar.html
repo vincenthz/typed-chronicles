@@ -1,19 +1,12 @@
-<div class="container {% if config.extra.hyde_sticky %}sidebar-sticky{% endif %}">
-    <div class="sidebar-about">
-        {% block sidebar_about %}
-        <h1><a href="{{ config.base_url }}">{{ config.title }}</a></h1>
-        {% if config.description %}
-        <p class="lead">{{config.description}}</p>
-        {% endif %}
-        {% endblock sidebar_about %}
-    </div>
-
-    <ul class="sidebar-nav">
-        {% block sidebar_nav %}
-        {% for link in config.extra.hyde_links %}
-        <li class="sidebar-nav-item"><a
-                href="{{link.url | replace(from="$BASE_URL", to=config.base_url) }}">{{link.name}}</a></li>
-        {% endfor %}
-        {% endblock sidebar_nav %}
+<h1>{{ config.title }}</h1>
+<p class="lead">Vincent Hanquez's adventures</p>
+<!-- <a href="{{ config.base_url }}">{{ config.title }}</a> -->
+<nav id="nav-site">
+    <ul>
+        <li><a class="icon" href="{{ config.base_url }}"><img src="/icons/home.svg"></a> </li>
+        <li><a class="icon" href="{{ get_url(path="rss.xml", trailing_slash=false) }}"><img src="/icons/rss.svg"></a>
+        </li>
+        <li><a class="icon" href="https://github.com/vincenthz" target="_blank"><img src="/icons/gh.svg"></a></li>
+        <li><a class="icon" href="https://twitter.com/vincenthz" target="_blank"><img src="/icons/tw.svg"></a></li>
     </ul>
-</div>
+</nav>
