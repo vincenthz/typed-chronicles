@@ -1,7 +1,7 @@
 +++
 title = "Ouroboros Verifiable Random Function"
 date = 2020-01-26
-draft = true
+draft = false
 [taxonomies]
 tags = ["cryptography", "blockchain", "VRF", "benchmarks"]
 categories = ["cryptography"]
