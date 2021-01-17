@@ -32,7 +32,7 @@ Many other cryptographic packages are now wasm friendly also.
 
 ## Benchmarks setup
 
-* cpu: 3.6 GHz 8-Core Intel Core i9 
+* cpu: 3.6 GHz 8-Core Intel Core i9 (I9-9900K)
 * rust compiler: stable 1.49
 * cryptoxide: 0.3.0
 * rust-crypto: blake2 0.9.1, sha2 0.9.1
