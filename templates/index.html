@@ -19,19 +19,32 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
     {% if config.generate_rss %}
-    <link rel="alternate" type="application/rss+xml" title="RSS"
-        href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
     {% endif %}
 
     {% if page.extra.math %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body, { throwOnError: false });"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css"
+        integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw=="
+        crossorigin="anonymous" />
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js"
+        integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg=="
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js"
+        integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg=="
+        crossorigin="anonymous" onload="renderMathInElement(document.body, { throwOnError: false });"></script>
     {% endif %}
 
     {% if page.extra.diagram %}
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.6/dist/mermaid.min.js" integrity="sha256-wV/0jM5E/0V+KqyxUio2Ve5OAC/gweTTqdbnRX1fgAE=" crossorigin="anonymous"></script>
-    <script>mermaid.initialize({startOnLoad:true, theme: 'forest'});</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.8.4/mermaid.min.js"
+        integrity="sha512-as1BF4+iHZ3BVO6LLDQ7zrbvTXM+c/1iZ1qII/c3c4L8Rn5tHLpFUtpaEtBNS92f+xGsCzsD7b62XP3XYap6oA=="
+        crossorigin="anonymous"></script>
+    <script>mermaid.initialize({ startOnLoad: true, theme: 'forest' });</script>
+    {% endif %}
+
+    {% if page.extra.graphs %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"
+        integrity="sha512-FJ2OYvUIXUqCcPf1stu+oTBlhn54W0UisZB/TNrZaVMHHhYvLBV9jMbvJYtvDe5x/WVaoXZ6KB+Uqe5hT2vlyA=="
+        crossorigin="anonymous"></script>
     {% endif %}
 
     <script>function toggle_darkmode() { document.querySelector('body').classList.toggle('dark') }
@@ -85,10 +98,9 @@
                 <div class="social">
                     <a class="icon" href="https://github.com/vincenthz" target="_blank"><img src="/icons/gh.svg"></a>
                     <a class="icon" href="https://twitter.com/vincenthz" target="_blank"><img src="/icons/tw.svg"></a>
-                    <a class="icon" href="{{ get_url(path="rss.xml", trailing_slash=false) }}"><img
-                            src="/icons/rss.svg"></a>
+                    <a class="icon" href="{{ get_url(path="rss.xml", trailing_slash=false) }}"><img src="/icons/rss.svg"></a>
                 </div>
-                <span>&copy; 2014-2020 Vincent Hanquez</span>
+                <span>&copy; 2014-2021 Vincent Hanquez</span>
             </div>
         </footer>
     </div>
