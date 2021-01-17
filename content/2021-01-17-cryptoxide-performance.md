@@ -54,9 +54,11 @@ To play with the benchmark on your own machine, have a look at [rcc](https://git
 
 ## Raw numbers
 
-Let's start with the raw number
+Let's start with the raw number in release mode;
+This show the average (lower better) with standard deviation (the lower, the better for reliability of benchmark),
+and the speed of processing (higher better):
 
-Default:
+Using the default target_cpu:
 
 | Algorithm | Crate      | Avg(ms) | Std Dev(ms) | Speed(mb/s) |
 | --------- | ---------- | ------- | ----------- | ----------- |
@@ -71,7 +73,7 @@ Default:
 | sha512    | sha2       | 21.10   | 0.422       | 473         |
 | sha512    | ring       | 13.29   | 0.296       | 752         |
 
-Native:
+Using the native target_cpu `target_cpu=native`:
 
 | Algorithm | Crate      | Avg(ms) | Std Dev(ms) | Speed(mb/s) |
 | --------- | ---------- | ------- | ----------- | ----------- |
