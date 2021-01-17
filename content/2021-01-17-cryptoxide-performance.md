@@ -15,6 +15,8 @@ year on [cryptoxide](https://github.com/typed-io/cryptoxide/) :
 * [SHA2 optimisation](https://github.com/typed-io/cryptoxide/pull/8)
 * [Blake2 optimisation](https://github.com/typed-io/cryptoxide/pull/9)
 
+<!-- more -->
+
 ## History of cryptoxide
 
 Cryptoxide is a fork of the initial [rust-crypto](https://github.com/DaGenix/rust-crypto)
@@ -24,7 +26,7 @@ In 2018, we needed a pure rust version to construct rust-wasm based
 web-applications when this use case was in its infancy; rust-crypto was an
 interesting starting point, as all the algorithms were written in pure rust,
 and it was also easier to construct something than the exploded version which
-would have required lots of more time to port.
+would have required lots more time to port.
 
 Many other cryptographic packages are now wasm friendly also.
 
