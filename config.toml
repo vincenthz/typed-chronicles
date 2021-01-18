@@ -9,8 +9,9 @@ compile_sass = true
 build_search_index = true
 
 highlight_theme = "base16-ocean-dark"
-generate_rss = true
 rss_limit = 20
+generate_feed = true
+feed_filename = "rss.xml"
 title = "Typed Chronicles"
 description = "Vincent Hanquez's adventures with types, programming languages, crypto and security"
 default_language = "en"
