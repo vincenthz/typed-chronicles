@@ -14,10 +14,10 @@ Here's a practical guide to know where you stand and improve the situation.
 I've seen countless example of script, Docker file, etc, that
 will do something akin to:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.shell}
+```sh
 wget http://my-url/package (or curl)
 install package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
 
 For people that don't understand unix like shell script, that download a
 package on a HTTP server using a plain text connection, then try to install it.

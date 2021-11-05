@@ -29,7 +29,7 @@ another package depend on it.
 
 A simple example is better than many words:
 
-~~~~ {.shell}
+```sh
 $ cabal-db license -s -t BNFC
 BNFC: GPL
   process: BSD3
@@ -49,7 +49,7 @@ BNFC: GPL
 == license summary ==
 BSD3: 14
 GPL: 1
-~~~~
+```
 
 cabal-db is only using the license listed in the license field in cabal files,
 so if the field is incorrectly set, cabal-db would have no idea.

@@ -39,7 +39,7 @@ to efficiently map files, and devices as virtual memory.
 
 A simple example opening the "/dev/zero" device first memory page, and reading 4096 bytes from it:
 
-~~~~~~~~~~~~ {.haskell .numberLines}
+```haskell,linenos
 import System.Posix.IO
 import System.Posix.Memory
 import Control.Monad
@@ -51,5 +51,4 @@ bracket (openFd "/dev/zero" ReadWrite Nothing defaultFileFlags) closeFd $ \fd ->
   bracket (memoryMap Nothing 4096 [MemoryProtectionRead] MemoryMapPrivate (Just fd) 0)
           (\mem -> memoryUnmap mem 4096)
           (\mem -> mapM (peekElemOff mem) [0..4095])
-~~~~~~~~~~~~
-
+```

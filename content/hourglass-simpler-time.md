@@ -72,11 +72,11 @@ Along with the computer types, proper human types are useful for interacting
 with the users. This mean a Date type, a TimeOfDay, and a combined DateTime
 describe in pseudo haskell as:
 
-~~~~ {.haskell}
+```haskell
     data Date = Date Year Month Day
     data TimeOfDay = TimeOfDay Hour Minute Seconds
     data DateTime = DateTime Date TimeOfDay
-~~~~
+```
 
 Use the System, Luke !
 ----------------------
@@ -111,14 +111,14 @@ So 2 type classes have been devised:
 
 With this, hourglass support conversion between time types:
 
-~~~~ {.haskell}
+```haskell
 > timeConvert (Elasped 0) :: Date
 Date { dateYear = 1970, dateMonth = January, dateDay = 1 }
 > timeConvert (Date 1970 January 1) :: Elapsed
 Elapsed 0
 > timeConvert (DateTime (Date 1970 January 1) (TimeOfDay 0 0 0 0)) :: Date
 Date { dateYear = 1970, dateMonth = January, dateDay = 1 }
-~~~~
+```
 
 Anyone can add new calendar types or other low level types, and still interact
 with them with the built-in functions, provided it implement conversion with
@@ -130,19 +130,19 @@ Better formatting API
 
 Formatter have a known enumeration types:
 
-~~~~ {.haskell}
+```haskell
 > timePrint [Format_Day,Format_Text '-',Format_Month2] (Date 2011 January 12)
 "12-01"
-~~~~
+```
 
 But can be overloaded either by string, or some known formats:
 
-~~~~ {.haskell}
+```haskell
 > timePrint "DD-MM-YYYY" (Date 2011 January 12)
 "12-01-2011"
 > timePrint ISO8601_Date (Date 2011 January 12)
 "2011-01-12"
-~~~~
+```
 
 Someone could also re-add C time format string too with this design,
 without changing the API.
@@ -175,7 +175,7 @@ And its documentation is available on [hackage](http://hackage.haskell.org/packa
 Example of use
 --------------
 
-~~~ {.haskell}
+```haskell
 > t <- timeCurrent
 > timeGetDate t
 Date {dateYear = 2014, dateMonth = May, dateDay = 4}
@@ -190,7 +190,7 @@ DateTime { dtDate = Date {dateYear = 2014, dateMonth = May, dateDay = 4}
 "2014-05-04"
 > timePrint "DD Mon YYYY EPOCH TZHM" t
 "04 May 2014 1399183466 +0000"
-~~~~~
+```
 
 Q&A
 ---
