@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>Typed Chronicles</title>
+
+    <!-- CSS -->
+    <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" /> -->
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <!-- <link rel="stylesheet" href="https://vincenthz.github.io/print.css" media="print"> -->
+    <!-- <link rel="stylesheet" href="https://vincenthz.github.io/normalize.css"> -->
+    <link rel="stylesheet" href="https://vincenthz.github.io/typed.css">
+
+    
+
+    
+
+    
+
+    
+
+    <script>function toggle_darkmode() { document.querySelector('body').classList.toggle('dark') }
+    </script>
+
+    
+    
+</head>
+
+<body>
+    <div id="page-outer">
+
+        <div id="page">
+            
+<header>
+  <h1>Typed Chronicles</h1>
+<p class="lead">Vincent Hanquez's adventures</p>
+<!-- <a href="https:&#x2F;&#x2F;vincenthz.github.io">Typed Chronicles</a> -->
+<nav id="nav-site">
+    <ul>
+        <li><a class="icon" href="https:&#x2F;&#x2F;vincenthz.github.io"><img src="/icons/home.svg"></a> </li>
+        <li><a class="icon" href="https://vincenthz.github.io/rss.xml"><img src="/icons/rss.svg"></a>
+        </li>
+        <li><a class="icon" href="https://github.com/vincenthz" target="_blank"><img src="/icons/gh.svg"></a></li>
+        <li><a class="icon" href="https://twitter.com/vincenthz" target="_blank"><img src="/icons/tw.svg"></a></li>
+    </ul>
+</nav>
+
+</header>
+
+
+            <main>
+                
+<h1 class="page-title">Listing licenses with cabal-db</h1>
+<span class="post-date">Published on 2014-03-29</span>
+<p>Following discussions with fellow haskellers, regarding the need to be careful
+with adding packages that could depends on GPL or proprietary licenses, it
+turns out it's not easy to get your dependencies's licenses listed.</p>
+<span id="continue-reading"></span>
+<p>It would be convenient to be able to ask the hackage database those things,
+and this is exactly what cabal-db usually works with.</p>
+<p><a href="http://hackage.haskell.org/package/cabal-db">cabal-db</a>, for the ones that
+missed the previous
+<a href="http://tab.snarc.org/posts/haskell/2013-03-13-cabal-db.html">annoucement</a>, is a
+simple program that using the index.tar.gz file, is able to recursively display
+or search into packages and dependencies.</p>
+<p>The license subcommand is mainly to get a summary of the licenses of a packages
+and its dependencies, but it can also display the tree of licenses. Once
+a package has been listed, it would not appears again in the tree even if
+another package depend on it.</p>
+<p>A simple example is better than many words:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">$</span><span> cabal-db license</span><span style="color:#bf616a;"> -s -t</span><span> BNFC
+</span><span style="color:#bf616a;">BNFC:</span><span> GPL
+</span><span>  </span><span style="color:#bf616a;">process:</span><span> BSD3
+</span><span>    </span><span style="color:#bf616a;">unix:</span><span> BSD3
+</span><span>      </span><span style="color:#bf616a;">time:</span><span> BSD3
+</span><span>        </span><span style="color:#bf616a;">old-locale:</span><span> BSD3
+</span><span>          </span><span style="color:#bf616a;">base:</span><span> BSD3
+</span><span>        </span><span style="color:#bf616a;">deepseq:</span><span> BSD3
+</span><span>          </span><span style="color:#bf616a;">array:</span><span> BSD3
+</span><span>      </span><span style="color:#bf616a;">bytestring:</span><span> BSD3
+</span><span>    </span><span style="color:#bf616a;">filepath:</span><span> BSD3
+</span><span>    </span><span style="color:#bf616a;">directory:</span><span> BSD3
+</span><span>  </span><span style="color:#bf616a;">pretty:</span><span> BSD3
+</span><span>  </span><span style="color:#bf616a;">mtl:</span><span> BSD3
+</span><span>    </span><span style="color:#bf616a;">transformers:</span><span> BSD3
+</span><span>  </span><span style="color:#bf616a;">containers:</span><span> BSD3
+</span><span>=</span><span style="color:#a3be8c;">= </span><span style="color:#bf616a;">license</span><span> summary ==
+</span><span style="color:#bf616a;">BSD3:</span><span> 14
+</span><span style="color:#bf616a;">GPL:</span><span> 1
+</span></code></pre>
+<p>cabal-db is only using the license listed in the license field in cabal files,
+so if the field is incorrectly set, cabal-db would have no idea.</p>
+
+
+            </main>
+        </div>
+
+        <footer>
+            <div class="inner">
+                <div class="about-short">
+                    <h2><a href="/about/">About me</a></h2>
+                    <p>I've been developping software for the last 20 years, in many different languages and many
+                        different projects.
+                        My main interests are currently cryptography, security and typed programming</p>
+                    <p>I'm the director of <a href="https://typed.io/">Typed IO</a>, a software contracting company</p>
+                </div>
+                <div class="social">
+                    <a class="icon" href="https://github.com/vincenthz" target="_blank"><img src="/icons/gh.svg"></a>
+                    <a class="icon" href="https://twitter.com/vincenthz" target="_blank"><img src="/icons/tw.svg"></a>
+                    <a class="icon" href="https://vincenthz.github.io/rss.xml"><img src="/icons/rss.svg"></a>
+                </div>
+                <span>&copy; 2014-2021 Vincent Hanquez</span>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+
+</html>
